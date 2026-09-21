@@ -1,0 +1,3277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="description" content="HAICO CAR RENTAL - Modern vehicle rental platform">
+<title>HAICO CAR RENTAL</title>
+
+<style>
+:root{
+    --primary:#f59e0b;
+    --primary-dark:#d97706;
+    --dark:#0b1220;
+    --dark2:#111827;
+    --bg:#f8fafc;
+    --card:#fff;
+    --text:#111827;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --success:#16a34a;
+    --danger:#dc2626;
+    --shadow:0 15px 40px rgba(15,23,42,.10);
+    --radius:20px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+section{
+    padding:80px 0;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:2000;
+    background:rgba(11,18,32,.97);
+    box-shadow:0 5px 25px rgba(0,0,0,.15);
+}
+
+.navbar{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#fff;
+    font-weight:900;
+    white-space:nowrap;
+}
+
+.logo-mark{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,#f59e0b,#fbbf24);
+    border-radius:13px;
+    font-size:21px;
+}
+
+.logo small{
+    display:block;
+    color:#94a3b8;
+    font-size:9px;
+    letter-spacing:1.5px;
+    margin-top:2px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:4px;
+}
+
+.nav-links a{
+    color:#e2e8f0;
+    padding:10px 12px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    background:rgba(255,255,255,.09);
+    color:#fbbf24;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.nav-book{
+    border:0;
+    background:var(--primary);
+    color:#111827;
+    border-radius:11px;
+    padding:11px 16px;
+    font-weight:900;
+}
+
+.menu-btn{
+    display:none;
+    width:44px;
+    height:44px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:12px;
+    background:rgba(255,255,255,.07);
+    color:#fff;
+    font-size:24px;
+    place-items:center;
+    line-height:1;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    color:#fff;
+    background:
+    linear-gradient(90deg,rgba(2,6,23,.94),rgba(2,6,23,.60),rgba(2,6,23,.25)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-content{
+    max-width:720px;
+    padding:80px 0;
+}
+
+.badge{
+    display:inline-flex;
+    background:rgba(245,158,11,.14);
+    color:#fbbf24;
+    border:1px solid rgba(245,158,11,.3);
+    padding:8px 13px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:900;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,76px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#fbbf24;
+}
+
+.hero p{
+    max-width:650px;
+    color:#dbe4ef;
+    font-size:17px;
+    margin-bottom:27px;
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.btn{
+    border:0;
+    border-radius:13px;
+    padding:13px 18px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-weight:900;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:#111827;
+}
+
+.btn-dark{
+    background:#111827;
+    color:#fff;
+}
+
+.btn-light{
+    background:#fff;
+    color:#111827;
+}
+
+.btn-outline{
+    background:#fff;
+    border:1px solid var(--border);
+    color:#111827;
+}
+
+/* =========================
+QUICK SEARCH
+========================= */
+
+.quick-search{
+    margin-top:-45px;
+    position:relative;
+    z-index:20;
+}
+
+.search-box{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:18px;
+    box-shadow:var(--shadow);
+}
+
+.search-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr auto;
+    gap:10px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.field label{
+    color:var(--muted);
+    font-size:12px;
+    font-weight:900;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:12px;
+    background:#fff;
+    color:#111827;
+    outline:none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(245,158,11,.12);
+}
+
+/* =========================
+SECTION HEAD
+========================= */
+
+.section-head{
+    max-width:720px;
+    text-align:center;
+    margin:0 auto 38px;
+}
+
+.section-head span{
+    color:var(--primary-dark);
+    font-size:13px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+}
+
+.section-head h2{
+    font-size:clamp(29px,5vw,44px);
+    margin:7px 0 10px;
+}
+
+.section-head p{
+    color:var(--muted);
+}
+
+/* =========================
+STATS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:24px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    color:var(--primary-dark);
+    font-size:30px;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+FILTERS
+========================= */
+
+.filters{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.filter-btn{
+    border:1px solid var(--border);
+    background:#fff;
+    color:#111827;
+    padding:9px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:var(--primary);
+    border-color:var(--primary);
+}
+
+.sort-row{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:20px;
+}
+
+.sort-row select{
+    padding:10px 13px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    background:#fff;
+}
+
+/* =========================
+CARDS
+========================= */
+
+.car-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.car-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(15,23,42,.06);
+    transition:.3s;
+}
+
+.car-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.car-image{
+    height:215px;
+    position:relative;
+    background:#e2e8f0;
+    overflow:hidden;
+}
+
+.car-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.car-card:hover .car-image img{
+    transform:scale(1.05);
+}
+
+.car-badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:rgba(15,23,42,.88);
+    color:#fff;
+    padding:6px 9px;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:900;
+}
+
+.favorite{
+    position:absolute;
+    top:12px;
+    right:12px;
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    font-size:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.favorite.active{
+    color:#dc2626;
+}
+
+.car-content{
+    padding:18px;
+}
+
+.car-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.car-title h3{
+    font-size:19px;
+}
+
+.car-price{
+    color:var(--primary-dark);
+    font-weight:900;
+    text-align:right;
+    white-space:nowrap;
+}
+
+.car-price small{
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+}
+
+.car-description{
+    color:var(--muted);
+    font-size:13px;
+    margin:10px 0;
+}
+
+.car-meta{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+    margin:14px 0;
+}
+
+.meta{
+    background:#f8fafc;
+    border:1px solid var(--border);
+    padding:8px 4px;
+    border-radius:9px;
+    text-align:center;
+    font-size:10px;
+}
+
+.meta strong{
+    display:block;
+    font-size:12px;
+}
+
+/* =========================
+ABOUT
+========================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    align-items:center;
+}
+
+.about-image{
+    min-height:430px;
+    border-radius:25px;
+    background:
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85")
+    center/cover;
+}
+
+.about-content h2{
+    font-size:clamp(30px,5vw,46px);
+    margin:8px 0 15px;
+}
+
+.about-content p{
+    color:var(--muted);
+    margin-bottom:15px;
+}
+
+.check-list{
+    list-style:none;
+    display:grid;
+    gap:10px;
+    margin:20px 0;
+}
+
+.check-list li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.check-list span{
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background:#dcfce7;
+    color:#15803d;
+    display:grid;
+    place-items:center;
+}
+
+/* =========================
+SERVICES
+========================= */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.service{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+    transition:.3s;
+}
+
+.service:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.service-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:#fff7ed;
+    display:grid;
+    place-items:center;
+    font-size:23px;
+    margin-bottom:14px;
+}
+
+.service p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+BOOKING
+========================= */
+
+.booking-section{
+    background:#0b1220;
+    color:#fff;
+}
+
+.booking-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:35px;
+    align-items:start;
+}
+
+.booking-info h2{
+    font-size:clamp(30px,5vw,46px);
+    margin:8px 0 15px;
+}
+
+.booking-info p{
+    color:#cbd5e1;
+}
+
+.booking-points{
+    display:grid;
+    gap:12px;
+    margin-top:25px;
+}
+
+.booking-point{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.booking-point-icon{
+    width:40px;
+    height:40px;
+    border-radius:11px;
+    display:grid;
+    place-items:center;
+    background:rgba(245,158,11,.12);
+    color:#fbbf24;
+}
+
+.booking-card{
+    background:#fff;
+    color:#111827;
+    padding:23px;
+    border-radius:23px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.total-box{
+    background:#f8fafc;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:15px;
+    margin-top:15px;
+}
+
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+}
+
+.total-row.final{
+    border-top:1px solid var(--border);
+    margin-top:6px;
+    padding-top:12px;
+    font-size:19px;
+    font-weight:900;
+}
+
+/* =========================
+FOUNDER
+========================= */
+
+.founder{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:30px;
+    align-items:center;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:28px;
+    box-shadow:var(--shadow);
+}
+
+.founder-photo{
+    width:190px;
+    height:190px;
+    margin:auto;
+    border-radius:25px;
+    overflow:hidden;
+    background:#e2e8f0;
+}
+
+.founder-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.founder-role{
+    color:var(--primary-dark);
+    font-weight:900;
+    margin:5px 0 12px;
+}
+
+.founder p{
+    color:var(--muted);
+}
+
+.founder-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:18px;
+}
+
+/* =========================
+FAQ
+========================= */
+
+.faq{
+    max-width:850px;
+    margin:auto;
+    display:grid;
+    gap:10px;
+}
+
+.faq-item{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.faq-question{
+    width:100%;
+    border:0;
+    background:#fff;
+    padding:17px;
+    display:flex;
+    justify-content:space-between;
+    text-align:left;
+    font-weight:900;
+}
+
+.faq-answer{
+    display:none;
+    padding:0 17px 17px;
+    color:var(--muted);
+}
+
+.faq-item.open .faq-answer{
+    display:block;
+}
+
+/* =========================
+CONTACT
+========================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.contact-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+}
+
+.contact-item{
+    display:flex;
+    gap:13px;
+    padding:13px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.contact-item:last-child{
+    border-bottom:0;
+}
+
+.contact-icon{
+    width:40px;
+    height:40px;
+    background:#fff7ed;
+    border-radius:11px;
+    display:grid;
+    place-items:center;
+    flex:none;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    background:#070c16;
+    color:#cbd5e1;
+    padding:45px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-title{
+    color:#fff;
+    font-weight:900;
+    margin-bottom:13px;
+}
+
+.footer-links{
+    display:grid;
+    gap:8px;
+}
+
+.footer-links a:hover{
+    color:#fbbf24;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    margin-top:30px;
+    padding-top:20px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:15px;
+    font-size:13px;
+}
+
+/* =========================
+MODALS
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(2,6,23,.75);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    z-index:5000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-card{
+    width:min(600px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#fff;
+    border-radius:23px;
+    padding:25px;
+    position:relative;
+}
+
+.modal-close{
+    position:absolute;
+    right:12px;
+    top:12px;
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:50%;
+    background:#f1f5f9;
+    font-size:21px;
+}
+
+.modal-image{
+    width:100%;
+    height:270px;
+    object-fit:cover;
+    border-radius:16px;
+    margin-bottom:17px;
+}
+
+/* =========================
+TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,30px);
+    opacity:0;
+    pointer-events:none;
+    z-index:7000;
+    background:#111827;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:12px;
+    max-width:90%;
+    text-align:center;
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:950px){
+
+    .menu-btn{
+        display:grid;
+    }
+
+    .nav-book{
+        display:none;
+    }
+
+    .nav-links{
+        position:absolute;
+        left:4%;
+        right:4%;
+        top:74px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:3px;
+        padding:10px;
+        background:#111827;
+        border:1px solid rgba(255,255,255,.13);
+        border-radius:18px;
+        box-shadow:0 20px 45px rgba(0,0,0,.35);
+        z-index:3000;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links a{
+        width:100%;
+        padding:14px;
+    }
+
+    .search-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .car-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid,
+    .booking-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    .container{
+        width:94%;
+    }
+
+    section{
+        padding:65px 0;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .stats,
+    .car-grid,
+    .services-grid,
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .about-image{
+        min-height:300px;
+    }
+
+    .founder{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .founder-links{
+        justify-content:center;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+HEADER
+========================= -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="#home" class="logo">
+    <div class="logo-mark">🚗</div>
+
+    <div>
+        HAICO CAR RENTAL
+        <small>DRIVE YOUR JOURNEY</small>
+    </div>
+</a>
+
+<nav class="nav-links" id="navLinks">
+
+    <a href="#home">Home</a>
+    <a href="#cars">Cars</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#booking">Booking</a>
+    <a href="#founder">Founder</a>
+    <a href="#contact">Contact</a>
+
+</nav>
+
+<div class="nav-actions">
+
+    <button
+        class="nav-book"
+        type="button"
+        id="navBookBtn">
+        Book Now
+    </button>
+
+    <button
+        class="menu-btn"
+        type="button"
+        id="menuBtn"
+        aria-label="Open menu"
+        aria-expanded="false">
+        ☰
+    </button>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- =========================
+HERO
+========================= -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="badge">
+    🚘 Reliable • Comfortable • Flexible
+</div>
+
+<h1>
+    Rent Your <span>Perfect Ride.</span>
+</h1>
+
+<p>
+    Explore reliable cars for business trips, family journeys,
+    airport transfers, holidays and everyday travel.
+</p>
+
+<div class="hero-actions">
+
+<button
+    class="btn btn-primary"
+    type="button"
+    id="browseCarsBtn">
+    🚗 Browse Cars
+</button>
+
+<button
+    class="btn btn-light"
+    type="button"
+    id="heroBookBtn">
+    📅 Book a Car
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+SEARCH
+========================= -->
+
+<div class="container quick-search">
+
+<div class="search-box">
+
+<div class="search-grid">
+
+<div class="field">
+
+<label>Search Vehicle</label>
+
+<input
+    type="search"
+    id="quickSearch"
+    placeholder="Toyota, SUV, Prado...">
+
+</div>
+
+<div class="field">
+
+<label>Vehicle Type</label>
+
+<select id="quickType">
+
+<option value="all">All Types</option>
+<option value="Economy">Economy</option>
+<option value="Sedan">Sedan</option>
+<option value="SUV">SUV</option>
+<option value="Luxury">Luxury</option>
+<option value="Van">Van</option>
+<option value="Pickup">Pickup</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>Pickup Date</label>
+
+<input
+    type="date"
+    id="quickDate">
+
+</div>
+
+<button
+    class="btn btn-primary"
+    type="button"
+    id="searchBtn">
+    Search
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================
+STATS
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<strong>12+</strong>
+<span>Vehicles</span>
+</div>
+
+<div class="stat">
+<strong>6</strong>
+<span>Vehicle Classes</span>
+</div>
+
+<div class="stat">
+<strong>24/7</strong>
+<span>Booking Support</span>
+</div>
+
+<div class="stat">
+<strong>100%</strong>
+<span>Customer Focus</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+CARS
+========================= -->
+
+<section id="cars">
+
+<div class="container">
+
+<div class="section-head">
+
+<span>Our Fleet</span>
+
+<h2>Choose Your Ride</h2>
+
+<p>
+Select a vehicle according to your travel needs and budget.
+</p>
+
+</div>
+
+<div class="filters">
+
+<button class="filter-btn active" data-filter="all" type="button">
+All
+</button>
+
+<button class="filter-btn" data-filter="Economy" type="button">
+Economy
+</button>
+
+<button class="filter-btn" data-filter="Sedan" type="button">
+Sedan
+</button>
+
+<button class="filter-btn" data-filter="SUV" type="button">
+SUV
+</button>
+
+<button class="filter-btn" data-filter="Luxury" type="button">
+Luxury
+</button>
+
+<button class="filter-btn" data-filter="Van" type="button">
+Van
+</button>
+
+<button class="filter-btn" data-filter="Pickup" type="button">
+Pickup
+</button>
+
+</div>
+
+<div class="sort-row">
+
+<select id="sortCars">
+
+<option value="recommended">
+Recommended
+</option>
+
+<option value="low">
+Price: Low to High
+</option>
+
+<option value="high">
+Price: High to Low
+</option>
+
+</select>
+
+</div>
+
+<div class="car-grid" id="carGrid"></div>
+
+</div>
+
+</section>
+
+<!-- =========================
+ABOUT
+========================= -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="about-grid">
+
+<div class="about-image"></div>
+
+<div class="about-content">
+
+<span style="color:var(--primary-dark);font-weight:900;">
+ABOUT HAICO CAR RENTAL
+</span>
+
+<h2>
+Your Journey Starts With The Right Car.
+</h2>
+
+<p>
+HAICO CAR RENTAL is a modern vehicle rental platform concept
+designed to make finding and requesting a suitable vehicle simple,
+fast and convenient.
+</p>
+
+<p>
+Choose from economical city cars, sedans, SUVs, luxury vehicles,
+vans and pickups.
+</p>
+
+<ul class="check-list">
+
+<li>
+<span>✓</span>
+Flexible rental options
+</li>
+
+<li>
+<span>✓</span>
+Self-drive and chauffeur options
+</li>
+
+<li>
+<span>✓</span>
+Multiple vehicle categories
+</li>
+
+<li>
+<span>✓</span>
+Easy WhatsApp booking
+</li>
+
+</ul>
+
+<button
+    class="btn btn-primary"
+    type="button"
+    id="aboutBookBtn">
+    Start Booking
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+SERVICES
+========================= -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-head">
+
+<span>What We Offer</span>
+
+<h2>Rental Services</h2>
+
+<p>
+Flexible services for different travel requirements.
+</p>
+
+</div>
+
+<div class="services-grid">
+
+<div class="service">
+<div class="service-icon">🚗</div>
+<h3>Self Drive</h3>
+<p>Rent a vehicle and enjoy the freedom to drive yourself.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">👨‍✈️</div>
+<h3>With Driver</h3>
+<p>Request a professional driver for your journey.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">✈️</div>
+<h3>Airport Transfer</h3>
+<p>Convenient transportation for airport pickups and drop-offs.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">💼</div>
+<h3>Business Trips</h3>
+<p>Practical rental options for business travel.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">🏖️</div>
+<h3>Holiday Rentals</h3>
+<p>Comfortable vehicles for holiday journeys.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">👨‍👩‍👧‍👦</div>
+<h3>Family Cars</h3>
+<p>Spacious vehicles for family travel.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">🚚</div>
+<h3>Pickup Rental</h3>
+<p>Strong pickup vehicles for practical transportation.</p>
+</div>
+
+<div class="service">
+<div class="service-icon">🏢</div>
+<h3>Corporate Rental</h3>
+<p>Vehicle rental solutions for organizations and teams.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+BOOKING
+========================= -->
+
+<section class="booking-section" id="booking">
+
+<div class="container">
+
+<div class="booking-grid">
+
+<div class="booking-info">
+
+<span style="color:#fbbf24;font-weight:900;">
+EASY BOOKING
+</span>
+
+<h2>
+Book Your Vehicle In Minutes.
+</h2>
+
+<p>
+Select your vehicle, dates and service option.
+The system calculates an estimated rental cost.
+</p>
+
+<div class="booking-points">
+
+<div class="booking-point">
+<div class="booking-point-icon">✓</div>
+<span>Simple booking process</span>
+</div>
+
+<div class="booking-point">
+<div class="booking-point-icon">💰</div>
+<span>Automatic rental calculation</span>
+</div>
+
+<div class="booking-point">
+<div class="booking-point-icon">📱</div>
+<span>WhatsApp booking support</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="booking-card">
+
+<h3 style="font-size:25px;margin-bottom:17px;">
+Rental Request
+</h3>
+
+<form id="bookingForm">
+
+<div class="form-grid">
+
+<div class="field full">
+
+<label>Choose Vehicle</label>
+
+<select id="bookingCar" required>
+
+<option value="">
+Select vehicle
+</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>Pickup Date</label>
+
+<input
+    type="date"
+    id="pickupDate"
+    required>
+
+</div>
+
+<div class="field">
+
+<label>Return Date</label>
+
+<input
+    type="date"
+    id="returnDate"
+    required>
+
+</div>
+
+<div class="field">
+
+<label>Your Name</label>
+
+<input
+    type="text"
+    id="customerName"
+    placeholder="Enter Full name"
+    required>
+
+</div>
+
+<div class="field">
+
+<label>Phone</label>
+
+<input
+    type="tel"
+    id="customerPhone"
+    placeholder="+255 718 170 176"
+    required>
+
+</div>
+
+<div class="field full">
+
+<label>Rental Service</label>
+
+<select id="driverOption">
+
+<option value="self">
+Self Drive
+</option>
+
+<option value="driver">
+With Driver (+TZS 50,000/day)
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="total-box">
+
+<div class="total-row">
+<span>Rental Days</span>
+<strong id="rentalDays">0</strong>
+</div>
+
+<div class="total-row">
+<span>Vehicle Cost</span>
+<strong id="vehicleCost">TZS 0</strong>
+</div>
+
+<div class="total-row">
+<span>Driver Cost</span>
+<strong id="driverCost">TZS 0</strong>
+</div>
+
+<div class="total-row final">
+<span>Estimated Total</span>
+<strong id="estimatedTotal">TZS 0</strong>
+</div>
+
+</div>
+
+<button
+    class="btn btn-primary"
+    type="submit"
+    style="width:100%;margin-top:15px;">
+Confirm Booking
+</button>
+
+<button
+    class="btn btn-dark"
+    type="button"
+    id="whatsappBookingBtn"
+    style="width:100%;margin-top:9px;">
+💬 Book via WhatsApp
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+FOUNDER
+========================= -->
+
+<section id="founder">
+
+<div class="container">
+
+<div class="section-head">
+
+<span>Platform Creator</span>
+
+<h2>Meet The Founder</h2>
+
+</div>
+
+<div class="founder">
+
+<div class="founder-photo">
+
+<img
+    src="ibn-haico.jpg"
+    alt="Mr_Haico"
+    onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=85';">
+
+</div>
+
+<div>
+
+<span style="color:var(--primary-dark);font-weight:900;">
+HAICO TECH & DESIGN
+</span>
+
+<h2>Mr_Haico</h2>
+
+<div class="founder-role">
+Founder & Digital Creator
+</div>
+
+<p>
+Mr_Haico is the creator behind HAICO CAR RENTAL and
+HAICO TECH & DESIGN, focused on building modern,
+practical and user-friendly digital solutions.
+</p>
+
+<div class="founder-links">
+
+<a
+    class="btn btn-primary"
+    href="tel:+255718170176">
+📞 Call
+</a>
+
+<a
+    class="btn btn-dark"
+    href="https://wa.me/255718170176"
+    target="_blank"
+    rel="noopener">
+💬 WhatsApp
+</a>
+
+<a
+    class="btn btn-outline"
+    href="mailto:ayoubhafidhi1@gmail.com">
+✉ Email
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+FAQ
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+
+<span>Questions</span>
+
+<h2>Frequently Asked Questions</h2>
+
+</div>
+
+<div class="faq">
+
+<div class="faq-item">
+
+<button class="faq-question" type="button">
+<span>What rental options are available?</span>
+<span>＋</span>
+</button>
+
+<div class="faq-answer">
+You can request self-drive or rental with a driver.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question" type="button">
+<span>Can I book through WhatsApp?</span>
+<span>＋</span>
+</button>
+
+<div class="faq-answer">
+Yes. Complete the booking information and send the request through WhatsApp.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question" type="button">
+<span>How is the rental price calculated?</span>
+<span>＋</span>
+</button>
+
+<div class="faq-answer">
+The estimated price is the daily vehicle rate multiplied by rental days.
+Driver service adds TZS 50,000 per day in this demo.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question" type="button">
+<span>Are these live rental prices?</span>
+<span>＋</span>
+</button>
+
+<div class="faq-answer">
+No. The vehicles and prices are demonstration data and should be
+replaced with actual business information before deployment.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+CONTACT
+========================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-head">
+
+<span>Get In Touch</span>
+
+<h2>Contact HAICO CAR RENTAL</h2>
+
+<p>
+Send a rental request or contact the platform creator.
+</p>
+
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<h3>Contact Information</h3>
+
+<div class="contact-item">
+<div class="contact-icon">📞</div>
+<div>
+<strong>Phone</strong>
+<p>+255 718 170 176</p>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">💬</div>
+<div>
+<strong>WhatsApp</strong>
+<p>+255 718 170 176</p>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">✉️</div>
+<div>
+<strong>Email</strong>
+<p>ayoubhafidhi1@gmail.com</p>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">🌍</div>
+<div>
+<strong>Service</strong>
+<p>Vehicle Rental & Digital Booking</p>
+</div>
+</div>
+
+</div>
+
+<div class="contact-card">
+
+<h3>Send A Message</h3>
+
+<form id="contactForm">
+
+<div class="field" style="margin-bottom:12px;">
+<label>Your Name</label>
+<input id="contactName" required placeholder="Full name">
+</div>
+
+<div class="field" style="margin-bottom:12px;">
+<label>Email</label>
+<input id="contactEmail" type="email" required placeholder="you@example.com">
+</div>
+
+<div class="field" style="margin-bottom:12px;">
+<label>Message</label>
+<textarea id="contactMessage" rows="5" required placeholder="Write your message..."></textarea>
+</div>
+
+<button class="btn btn-primary" type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<div class="footer-title">
+🚗 HAICO CAR RENTAL
+</div>
+
+<p>
+A modern vehicle rental website concept created by
+HAICO TECH & DESIGN.
+</p>
+
+<p style="margin-top:12px;">
+Your Idea. Our Creativity. One Digital Solution.
+</p>
+
+</div>
+
+<div>
+
+<div class="footer-title">
+Quick Links
+</div>
+
+<div class="footer-links">
+
+<a href="#home">Home</a>
+<a href="#cars">Cars</a>
+<a href="#services">Services</a>
+<a href="#booking">Booking</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="footer-title">
+Services
+</div>
+
+<div class="footer-links">
+
+<a href="#services">Self Drive</a>
+<a href="#services">With Driver</a>
+<a href="#services">Airport Transfer</a>
+<a href="#services">Business Rental</a>
+<a href="#services">Holiday Rental</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<span>
+© <span id="year"></span> HAICO CAR RENTAL
+</span>
+
+<span>
+Created by HAICO TECH & DESIGN
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- =========================
+CAR MODAL
+========================= -->
+
+<div class="modal" id="carModal">
+
+<div class="modal-card">
+
+<button
+    class="modal-close"
+    type="button"
+    id="closeCarModal">
+×
+</button>
+
+<img
+    id="modalCarImage"
+    class="modal-image"
+    alt="Vehicle">
+
+<h2 id="modalCarName"></h2>
+
+<p
+    id="modalCarDescription"
+    style="color:var(--muted);margin:8px 0 15px;">
+</p>
+
+<div class="car-meta">
+
+<div class="meta">
+<strong id="modalSeats"></strong>
+Seats
+</div>
+
+<div class="meta">
+<strong id="modalTransmission"></strong>
+Gearbox
+</div>
+
+<div class="meta">
+<strong id="modalFuel"></strong>
+Fuel
+</div>
+
+</div>
+
+<div
+    id="modalPrice"
+    style="font-size:22px;font-weight:900;color:var(--primary-dark);margin:15px 0;">
+</div>
+
+<button
+    class="btn btn-primary"
+    type="button"
+    id="modalBookBtn"
+    style="width:100%;">
+Book This Car
+</button>
+
+</div>
+
+</div>
+
+<!-- =========================
+SUCCESS MODAL
+========================= -->
+
+<div class="modal" id="successModal">
+
+<div class="modal-card" style="text-align:center;">
+
+<button
+    class="modal-close"
+    type="button"
+    id="closeSuccessModal">
+×
+</button>
+
+<div style="font-size:55px;">
+✅
+</div>
+
+<h2>Booking Request Ready</h2>
+
+<p style="color:var(--muted);margin:10px 0 20px;">
+Your rental request has been prepared successfully.
+</p>
+
+<button
+    class="btn btn-primary"
+    type="button"
+    id="sendPreparedBtn"
+    style="width:100%;">
+💬 Send on WhatsApp
+</button>
+
+</div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* =====================================================
+   HAICO CAR RENTAL
+   COMPLETE FUNCTIONAL JAVASCRIPT
+===================================================== */
+
+/* =========================
+CAR DATA
+========================= */
+
+const cars = [
+
+{
+id:1,
+name:"Toyota Vitz",
+type:"Economy",
+price:65000,
+seats:5,
+transmission:"Automatic",
+fuel:"Petrol",
+image:"https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=900&q=80",
+description:"Compact and economical vehicle suitable for city travel."
+},
+
+{
+id:2,
+name:"Toyota Corolla",
+type:"Sedan",
+price:85000,
+seats:5,
+transmission:"Automatic",
+fuel:"Petrol",
+image:"https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=900&q=80",
+description:"Comfortable sedan for business and everyday journeys."
+},
+
+{
+id:3,
+name:"Toyota Premio",
+type:"Sedan",
+price:95000,
+seats:5,
+transmission:"Automatic",
+fuel:"Petrol",
+image:"https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=900&q=80",
+description:"Elegant sedan offering comfort for longer journeys."
+},
+
+{
+id:4,
+name:"Toyota RAV4",
+type:"SUV",
+price:150000,
+seats:5,
+transmission:"Automatic",
+fuel:"Petrol",
+image:"https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=80",
+description:"Versatile SUV for city driving and outdoor adventures."
+},
+
+{
+id:5,
+name:"Toyota Harrier",
+type:"Luxury",
+price:190000,
+seats:5,
+transmission:"Automatic",
+fuel:"Petrol",
+image:"https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=80",
+description:"Premium SUV combining comfort, style and technology."
+},
+
+{
+id:6,
+name:"Toyota Land Cruiser Prado",
+type:"Luxury",
+price:300000,
+seats:7,
+transmission:"Automatic",
+fuel:"Diesel",
+image:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80",
+description:"Powerful premium SUV designed for long-distance travel."
+},
+
+{
+id:7,
+name:"Toyota Hiace",
+type:"Van",
+price:220000,
+seats:14,
+transmission:"Manual",
+fuel:"Diesel",
+image:"https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=900&q=80",
+description:"Spacious van for groups, events and organized trips."
+},
+
+{
+id:8,
+name:"Toyota Hilux",
+type:"Pickup",
+price:180000,
+seats:5,
+transmission:"Manual",
+fuel:"Diesel",
+image:"https://images.unsplash.com/photo-1559416523-140ddc3d238c?auto=format&fit=crop&w=900&q=80",
+description:"Strong pickup suitable for business and practical transport."
+},
+
+{
+id:9,
+name:"Toyota Noah",
+type:"Van",
+price:170000,
+seats:7,
+transmission:"Automatic",
+fuel:"Petrol",
+image:"https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80",
+description:"Comfortable family van for group and family journeys."
+},
+
+{
+id:10,
+name:"Mercedes-Benz C-Class",
+type:"Luxury",
+price:350000,
+seats:5,
+transmission:"Automatic",
+fuel:"Petrol",
+image:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=80",
+description:"Premium executive vehicle for luxury travel."
+},
+
+{
+id:11,
+name:"Toyota Axio",
+type:"Economy",
+price:70000,
+seats:5,
+transmission:"Automatic",
+fuel:"Petrol",
+image:"https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=80",
+description:"Reliable and economical sedan for daily transportation."
+},
+
+{
+id:12,
+name:"Nissan X-Trail",
+type:"SUV",
+price:145000,
+seats:5,
+transmission:"Automatic",
+fuel:"Petrol",
+image:"https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=900&q=80",
+description:"Comfortable SUV for family travel and road trips."
+}
+
+];
+
+/* =========================
+GLOBAL VARIABLES
+========================= */
+
+let activeFilter = "all";
+let selectedCar = null;
+let preparedBooking = null;
+let toastTimer = null;
+
+/* =========================
+HELPERS
+========================= */
+
+function $(id){
+    return document.getElementById(id);
+}
+
+function formatTZS(number){
+    return "TZS " + Number(number).toLocaleString("en-TZ");
+}
+
+function scrollToElement(id){
+
+    const element = $(id);
+
+    if(element){
+        element.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+    }
+
+}
+
+/* =========================
+MOBILE MENU
+IMPORTANT:
+ONLY ONE CLICK EVENT
+========================= */
+
+const menuBtn = $("menuBtn");
+const navLinks = $("navLinks");
+
+function openMenu(){
+
+    navLinks.classList.add("show");
+
+    menuBtn.innerHTML = "✕";
+    menuBtn.setAttribute("aria-expanded","true");
+    menuBtn.setAttribute("aria-label","Close menu");
+
+}
+
+function closeMenu(){
+
+    navLinks.classList.remove("show");
+
+    menuBtn.innerHTML = "☰";
+    menuBtn.setAttribute("aria-expanded","false");
+    menuBtn.setAttribute("aria-label","Open menu");
+
+}
+
+function toggleMenu(){
+
+    if(navLinks.classList.contains("show")){
+        closeMenu();
+    }else{
+        openMenu();
+    }
+
+}
+
+/* ONE event listener only */
+menuBtn.addEventListener("click",function(event){
+
+    event.stopPropagation();
+
+    toggleMenu();
+
+});
+
+/* Close after clicking a navigation link */
+
+navLinks.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click",function(){
+        closeMenu();
+    });
+
+});
+
+/* Close if user taps outside */
+
+document.addEventListener("click",function(event){
+
+    if(
+        navLinks.classList.contains("show") &&
+        !navLinks.contains(event.target) &&
+        !menuBtn.contains(event.target)
+    ){
+        closeMenu();
+    }
+
+});
+
+/* Close menu on desktop */
+
+window.addEventListener("resize",function(){
+
+    if(window.innerWidth > 950){
+        closeMenu();
+    }
+
+});
+
+/* =========================
+NAVIGATION BUTTONS
+========================= */
+
+$("navBookBtn").addEventListener("click",function(){
+    scrollToElement("booking");
+});
+
+$("browseCarsBtn").addEventListener("click",function(){
+    scrollToElement("cars");
+});
+
+$("heroBookBtn").addEventListener("click",function(){
+    scrollToElement("booking");
+});
+
+$("aboutBookBtn").addEventListener("click",function(){
+    scrollToElement("booking");
+});
+
+/* =========================
+RENDER CARS
+========================= */
+
+function renderCars(){
+
+    const grid = $("carGrid");
+
+    let list = [...cars];
+
+    /* category */
+
+    if(activeFilter !== "all"){
+        list = list.filter(car => car.type === activeFilter);
+    }
+
+    /* search */
+
+    const search =
+        $("quickSearch").value.trim().toLowerCase();
+
+    if(search){
+
+        list = list.filter(car =>
+
+            car.name.toLowerCase().includes(search) ||
+            car.type.toLowerCase().includes(search) ||
+            car.description.toLowerCase().includes(search)
+
+        );
+
+    }
+
+    /* type */
+
+    const type = $("quickType").value;
+
+    if(type !== "all"){
+        list = list.filter(car => car.type === type);
+    }
+
+    /* sorting */
+
+    const sort = $("sortCars").value;
+
+    if(sort === "low"){
+        list.sort((a,b) => a.price - b.price);
+    }
+
+    if(sort === "high"){
+        list.sort((a,b) => b.price - a.price);
+    }
+
+    if(list.length === 0){
+
+        grid.innerHTML = `
+        <div style="
+            grid-column:1/-1;
+            text-align:center;
+            background:#fff;
+            padding:45px 20px;
+            border-radius:20px;
+            border:1px solid var(--border);
+        ">
+
+            <div style="font-size:45px;">🚘</div>
+
+            <h3>No vehicles found</h3>
+
+            <p style="color:var(--muted);margin:8px 0;">
+                Try another search or category.
+            </p>
+
+            <button
+                class="btn btn-primary"
+                type="button"
+                id="resetFiltersBtn">
+                Reset Filters
+            </button>
+
+        </div>
+        `;
+
+        $("resetFiltersBtn").addEventListener("click",resetFilters);
+
+        return;
+    }
+
+    grid.innerHTML = list.map(car => `
+
+    <article class="car-card">
+
+        <div class="car-image">
+
+            <img
+                src="${car.image}"
+                alt="${car.name}"
+                loading="lazy">
+
+            <span class="car-badge">
+                ${car.type}
+            </span>
+
+            <button
+                class="favorite"
+                type="button"
+                data-favorite="${car.id}">
+                ♡
+            </button>
+
+        </div>
+
+        <div class="car-content">
+
+            <div class="car-title">
+
+                <h3>${car.name}</h3>
+
+                <div class="car-price">
+                    ${formatTZS(car.price)}
+                    <small>per day</small>
+                </div>
+
+            </div>
+
+            <p class="car-description">
+                ${car.description}
+            </p>
+
+            <div class="car-meta">
+
+                <div class="meta">
+                    <strong>${car.seats}</strong>
+                    Seats
+                </div>
+
+                <div class="meta">
+                    <strong>${car.transmission}</strong>
+                    Gear
+                </div>
+
+                <div class="meta">
+                    <strong>${car.fuel}</strong>
+                    Fuel
+                </div>
+
+            </div>
+
+            <div style="
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                gap:8px;
+            ">
+
+                <button
+                    class="btn btn-outline view-car"
+                    type="button"
+                    data-id="${car.id}">
+                    View
+                </button>
+
+                <button
+                    class="btn btn-primary book-car"
+                    type="button"
+                    data-id="${car.id}">
+                    Book
+                </button>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    `).join("");
+
+    /* Favorite buttons */
+
+    grid.querySelectorAll("[data-favorite]")
+    .forEach(button => {
+
+        button.addEventListener("click",function(){
+
+            this.classList.toggle("active");
+
+            this.innerHTML =
+                this.classList.contains("active")
+                ? "♥"
+                : "♡";
+
+            const car = cars.find(
+                item => item.id == this.dataset.favorite
+            );
+
+            showToast(
+                this.classList.contains("active")
+                ? `${car.name} added to favorites`
+                : `${car.name} removed from favorites`
+            );
+
+        });
+
+    });
+
+    /* View buttons */
+
+    grid.querySelectorAll(".view-car")
+    .forEach(button => {
+
+        button.addEventListener("click",function(){
+
+            showCarDetails(Number(this.dataset.id));
+
+        });
+
+    });
+
+    /* Book buttons */
+
+    grid.querySelectorAll(".book-car")
+    .forEach(button => {
+
+        button.addEventListener("click",function(){
+
+            selectCarForBooking(Number(this.dataset.id));
+
+        });
+
+    });
+
+}
+
+/* =========================
+FILTER BUTTONS
+========================= */
+
+document.querySelectorAll(".filter-btn")
+.forEach(button => {
+
+    button.addEventListener("click",function(){
+
+        document.querySelectorAll(".filter-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+        this.classList.add("active");
+
+        activeFilter = this.dataset.filter;
+
+        renderCars();
+
+    });
+
+});
+
+/* =========================
+SEARCH
+========================= */
+
+$("searchBtn").addEventListener("click",function(){
+
+    renderCars();
+
+    scrollToElement("cars");
+
+    showToast("Vehicle search updated.");
+
+});
+
+$("quickSearch").addEventListener("input",renderCars);
+
+$("quickType").addEventListener("change",renderCars);
+
+$("sortCars").addEventListener("change",renderCars);
+
+/* =========================
+RESET
+========================= */
+
+function resetFilters(){
+
+    activeFilter = "all";
+
+    $("quickSearch").value = "";
+    $("quickType").value = "all";
+    $("sortCars").value = "recommended";
+
+    document.querySelectorAll(".filter-btn")
+    .forEach(btn => btn.classList.remove("active"));
+
+    document.querySelector(
+        '.filter-btn[data-filter="all"]'
+    ).classList.add("active");
+
+    renderCars();
+
+    showToast("Filters reset.");
+
+}
+
+/* =========================
+CAR MODAL
+========================= */
+
+function showCarDetails(id){
+
+    const car = cars.find(item => item.id === id);
+
+    if(!car) return;
+
+    selectedCar = car;
+
+    $("modalCarImage").src = car.image;
+    $("modalCarName").textContent = car.name;
+    $("modalCarDescription").textContent = car.description;
+    $("modalSeats").textContent = car.seats;
+    $("modalTransmission").textContent = car.transmission;
+    $("modalFuel").textContent = car.fuel;
+    $("modalPrice").textContent =
+        formatTZS(car.price) + " / day";
+
+    $("carModal").classList.add("show");
+
+}
+
+function closeCarModal(){
+    $("carModal").classList.remove("show");
+}
+
+$("closeCarModal").addEventListener(
+    "click",
+    closeCarModal
+);
+
+$("modalBookBtn").addEventListener("click",function(){
+
+    if(!selectedCar) return;
+
+    closeCarModal();
+
+    selectCarForBooking(selectedCar.id);
+
+});
+
+/* =========================
+BOOKING OPTIONS
+========================= */
+
+cars.forEach(car => {
+
+    const option = document.createElement("option");
+
+    option.value = car.id;
+
+    option.textContent =
+        `${car.name} — ${formatTZS(car.price)}/day`;
+
+    $("bookingCar").appendChild(option);
+
+});
+
+/* =========================
+DATES
+========================= */
+
+const today =
+    new Date().toISOString().split("T")[0];
+
+$("pickupDate").min = today;
+$("returnDate").min = today;
+$("quickDate").min = today;
+
+$("pickupDate").addEventListener("change",function(){
+
+    $("returnDate").min = this.value;
+
+    calculateBooking();
+
+});
+
+$("returnDate").addEventListener(
+    "change",
+    calculateBooking
+);
+
+/* =========================
+BOOKING CALCULATOR
+========================= */
+
+function getRentalDays(){
+
+    const pickup = $("pickupDate").value;
+    const returned = $("returnDate").value;
+
+    if(!pickup || !returned){
+        return 0;
+    }
+
+    const start =
+        new Date(pickup + "T00:00:00");
+
+    const end =
+        new Date(returned + "T00:00:00");
+
+    const difference =
+        end - start;
+
+    const days =
+        Math.ceil(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+    return days > 0 ? days : 0;
+
+}
+
+function calculateBooking(){
+
+    const car = cars.find(
+        item => String(item.id) === $("bookingCar").value
+    );
+
+    const days = getRentalDays();
+
+    const driver =
+        $("driverOption").value === "driver";
+
+    const vehicleCost =
+        car && days
+        ? car.price * days
+        : 0;
+
+    const driverCost =
+        driver && days
+        ? 50000 * days
+        : 0;
+
+    const total =
+        vehicleCost + driverCost;
+
+    $("rentalDays").textContent = days;
+
+    $("vehicleCost").textContent =
+        formatTZS(vehicleCost);
+
+    $("driverCost").textContent =
+        formatTZS(driverCost);
+
+    $("estimatedTotal").textContent =
+        formatTZS(total);
+
+}
+
+$("bookingCar").addEventListener(
+    "change",
+    calculateBooking
+);
+
+$("driverOption").addEventListener(
+    "change",
+    calculateBooking
+);
+
+/* =========================
+SELECT CAR
+========================= */
+
+function selectCarForBooking(id){
+
+    $("bookingCar").value = String(id);
+
+    calculateBooking();
+
+    scrollToElement("booking");
+
+    showToast("Vehicle selected.");
+
+}
+
+/* =========================
+BOOKING SUBMIT
+========================= */
+
+$("bookingForm").addEventListener(
+"submit",
+function(event){
+
+    event.preventDefault();
+
+    const car = cars.find(
+        item => String(item.id) === $("bookingCar").value
+    );
+
+    const days = getRentalDays();
+
+    if(!car){
+
+        showToast("Please select a vehicle.");
+
+        return;
+
+    }
+
+    if(days <= 0){
+
+        showToast(
+            "Please select valid pickup and return dates."
+        );
+
+        return;
+
+    }
+
+    const driver =
+        $("driverOption").value === "driver";
+
+    const vehicleCost =
+        car.price * days;
+
+    const driverCost =
+        driver ? 50000 * days : 0;
+
+    preparedBooking = {
+
+        car:car,
+
+        name:$("customerName").value.trim(),
+
+        phone:$("customerPhone").value.trim(),
+
+        pickup:$("pickupDate").value,
+
+        returned:$("returnDate").value,
+
+        days:days,
+
+        service:driver
+            ? "With Driver"
+            : "Self Drive",
+
+        vehicleCost:vehicleCost,
+
+        driverCost:driverCost,
+
+        total:vehicleCost + driverCost
+
+    };
+
+    $("successModal").classList.add("show");
+
+});
+
+/* =========================
+WHATSAPP
+========================= */
+
+function createWhatsAppMessage(){
+
+    if(!preparedBooking){
+        return "";
+    }
+
+    const b = preparedBooking;
+
+    return `Hello HAICO CAR RENTAL,
+
+I would like to request a vehicle rental.
+
+Vehicle: ${b.car.name}
+Category: ${b.car.type}
+
+Customer Name: ${b.name}
+Phone: ${b.phone}
+
+Pickup Date: ${b.pickup}
+Return Date: ${b.returned}
+Rental Days: ${b.days}
+
+Service: ${b.service}
+
+Vehicle Cost: ${formatTZS(b.vehicleCost)}
+Driver Cost: ${formatTZS(b.driverCost)}
+
+Estimated Total: ${formatTZS(b.total)}
+
+Please confirm availability and booking details.
+
+Thank you.`;
+
+}
+
+function sendWhatsApp(){
+
+    if(!preparedBooking){
+        return;
+    }
+
+    const message =
+        encodeURIComponent(
+            createWhatsAppMessage()
+        );
+
+    window.open(
+        "https://wa.me/255718170176?text=" + message,
+        "_blank"
+    );
+
+}
+
+$("whatsappBookingBtn")
+.addEventListener("click",function(){
+
+    if(!$("bookingForm").reportValidity()){
+        return;
+    }
+
+    const car = cars.find(
+        item => String(item.id) === $("bookingCar").value
+    );
+
+    const days = getRentalDays();
+
+    if(!car || days <= 0){
+
+        showToast(
+            "Please complete the booking details."
+        );
+
+        return;
+
+    }
+
+    const driver =
+        $("driverOption").value === "driver";
+
+    const vehicleCost =
+        car.price * days;
+
+    const driverCost =
+        driver ? 50000 * days : 0;
+
+    preparedBooking = {
+
+        car:car,
+
+        name:$("customerName").value.trim(),
+
+        phone:$("customerPhone").value.trim(),
+
+        pickup:$("pickupDate").value,
+
+        returned:$("returnDate").value,
+
+        days:days,
+
+        service:driver
+            ? "With Driver"
+            : "Self Drive",
+
+        vehicleCost:vehicleCost,
+
+        driverCost:driverCost,
+
+        total:vehicleCost + driverCost
+
+    };
+
+    sendWhatsApp();
+
+});
+
+$("sendPreparedBtn")
+.addEventListener(
+    "click",
+    sendWhatsApp
+);
+
+$("closeSuccessModal")
+.addEventListener("click",function(){
+
+    $("successModal").classList.remove("show");
+
+});
+
+/* =========================
+CONTACT FORM
+========================= */
+
+$("contactForm").addEventListener(
+"submit",
+function(event){
+
+    event.preventDefault();
+
+    const name =
+        $("contactName").value.trim();
+
+    const email =
+        $("contactEmail").value.trim();
+
+    const message =
+        $("contactMessage").value.trim();
+
+    const subject =
+        encodeURIComponent(
+            "HAICO CAR RENTAL Contact Message"
+        );
+
+    const body =
+        encodeURIComponent(
+`Name: ${name}
+
+Email: ${email}
+
+Message:
+${message}`
+        );
+
+    window.location.href =
+        `mailto:ayoubhafidhi1@gmail.com?subject=${subject}&body=${body}`;
+
+});
+
+/* =========================
+FAQ
+========================= */
+
+document.querySelectorAll(".faq-question")
+.forEach(button => {
+
+    button.addEventListener("click",function(){
+
+        const current =
+            this.parentElement;
+
+        document.querySelectorAll(".faq-item")
+        .forEach(item => {
+
+            if(item !== current){
+                item.classList.remove("open");
+
+                const icon =
+                    item.querySelector(
+                        ".faq-question span:last-child"
+                    );
+
+                if(icon){
+                    icon.textContent = "＋";
+                }
+            }
+
+        });
+
+        current.classList.toggle("open");
+
+        const icon =
+            this.querySelector(
+                "span:last-child"
+            );
+
+        if(icon){
+
+            icon.textContent =
+                current.classList.contains("open")
+                ? "−"
+                : "＋";
+
+        }
+
+    });
+
+});
+
+/* =========================
+MODAL OUTSIDE CLICK
+========================= */
+
+document.querySelectorAll(".modal")
+.forEach(modal => {
+
+    modal.addEventListener("click",function(event){
+
+        if(event.target === modal){
+
+            modal.classList.remove("show");
+
+        }
+
+    });
+
+});
+
+/* =========================
+ESC KEY
+========================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        closeMenu();
+
+        document.querySelectorAll(".modal")
+        .forEach(modal => {
+            modal.classList.remove("show");
+        });
+
+    }
+
+});
+
+/* =========================
+TOAST
+========================= */
+
+function showToast(message){
+
+    const toast = $("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer =
+        setTimeout(function(){
+
+            toast.classList.remove("show");
+
+        },2500);
+
+}
+
+/* =========================
+YEAR
+========================= */
+
+$("year").textContent =
+    new Date().getFullYear();
+
+/* =========================
+INITIAL LOAD
+========================= */
+
+renderCars();
+calculateBooking();
+
+</script>
+
+</body>
+</html>
